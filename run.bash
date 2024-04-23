@@ -49,6 +49,9 @@ function fn_main(){
             docker container rm -f "${S_CONTAINER_NAME}"
         fi
     }
+
+    fn_parar_container
+    fn_remover_container
 }
 
 fn_main
