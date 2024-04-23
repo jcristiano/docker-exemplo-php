@@ -2,8 +2,8 @@
 
 set -x
 
-S_CONTAINER_NAME="senai-app-php"
-S_IMAGE_NAME="senai-jcmsilv-conuv-php:0.0.1"
+S_CONTAINER_NAME="${1:-senai-app-php}"
+S_IMAGE_NAME="${2:-senai-jcmsilv-conuv-php:0.0.1}"
 
 function fn_container_is_running(){
     local s_container_name=${1}    
@@ -50,21 +50,17 @@ function fn_main(){
         fi
     }
 
+    function fn_subir_container(){
+        docker container run \
+            --name "${S_CONTAINER_NAME}" \
+            -d -p 8080:80 -v /app:/var/www/html \
+            "${S_IMAGE_NAME}"
+    }
+
     fn_parar_container
     fn_remover_container
+    fn_subir_container
+
 }
 
 fn_main
-exit 0
-if $( docker ps -a --format '{{.Names}}' | grep -q "^${S_CONTAINER_NAME}\$" ); then
-    docker container stop "${}"    
-    docker rm -f "${S_CONTAINER_NAME}"
-    echo "Container removido: ${S_CONTAINER_NAME}"
-else
-    echo "Container ${senai-app-php} não existe"
-fi
-
-docker container run \
-    --name "${S_CONTAINER_NAME}" \
-    -d -p 8080:80 -v /app:/var/www/html \
-    "${S_IMAGE_NAME}"
