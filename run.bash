@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export S_CONTAINER_NAME="senai-app-php"
-export S_IMAGE_NAME="senai-jcmsilv-conuv-php"
+export S_IMAGE_NAME="senai-jcmsilv-conuv-php:0.0.1"
 
 
 if $( docker ps -a --format '{{.Names}}' | grep -q "^${S_CONTAINER_NAME}\$" ); then    
