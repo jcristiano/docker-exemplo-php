@@ -5,8 +5,7 @@ services:
     container_name: meu-container-app
     build:
       context: .
-      dockerfile: Dockerfile
-      image: senai-jcmsilv-conuv-php:0.0.1
+      dockerfile: Dockerfile      
     volumes:
       - ./meu_app:/var/www/html
     ports:
