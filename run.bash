@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 export S_CONTAINER_NAME="senai-app-php"
 export S_IMAGE_NAME="senai-jcmsilv-conuv-php:0.0.1"
 
