@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   app:
-    container_name: meu-container-app
+    container_name: senai-app-php
     build:
       context: .
       dockerfile: Dockerfile      
     volumes:
-      - ./meu_app:/var/www/html
+      - /app:/var/www/html
     ports:
       - "8080:80"
     depends_on:
