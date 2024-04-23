@@ -15,7 +15,7 @@ function fn_container_is_running(){
 
 function fn_image_exists(){
     local s_image_name=${1}
-    if [[ $( docker ps -a --format '{{.Names}}' | grep -q "^${s_image_name}\$" ) -eq 0 ]];
+    if [[ $( docker ps -a --format '{{.Names}}' | grep -q "^${s_image_name}\$" ) -eq 0 ]]; then
         return 1
     fi
     return 0
