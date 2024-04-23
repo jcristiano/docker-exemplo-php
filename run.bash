@@ -22,7 +22,7 @@ function fn_image_exists(){
 }
 
 function fn_main(){
-    if [[ fn_container_is_running ${S_CONTAINER_NAME} -eq 1 ]]; then
+    if [[ $( fn_container_is_running ${S_CONTAINER_NAME} ) -eq 1 ]]; then
         echo "Parando o container: ${S_CONTAINER_NAME}"
         docker container stop "${S_CONTAINER_NAME}"
     fi
